@@ -1,0 +1,11 @@
+.card{
+    font-size: 20px;
+    margin: 10px;
+}
+.card-img-top{
+    width: 18rem;
+    height: 15rem;
+}
+.card-body{
+    justify-self: flex-end;
+}
