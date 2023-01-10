@@ -17,19 +17,16 @@ const ItemCount = ({ onAdd, stock }) => {
         setCount(1);
     };
 
-    const [qty, setQty] = useState(1);
-    const addProduct = (num) => {
-        setQty(qty + num);
-    };
-
     return (
         <div className="count-container">
-            <div className="count-container__contador">
-                <button className="count-container__button" onClick={decrement}>-</button>
-                <span className="count-container__count">{count}</span>
-                <button className="count-container__button" onClick={increment}>+</button>
+            <div className="count-container__contador row">
+                <button className="count-container__button col" onClick={decrement}>-</button>
+                <span className="count-container__count col">{count}</span>
+                <button className="count-container__button col" onClick={increment}>+</button>
             </div>
-            <button className="button-primary" onClick={reset}>Reset</button>
+            <div className='row'>
+                <button className="button-primary reset col" onClick={reset}>Reset</button>
+            </div>
         </div>
     );
 };

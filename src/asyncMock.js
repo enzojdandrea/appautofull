@@ -5,10 +5,20 @@ const products =[
 {id:'4',nombre:'Polarizados',precio:4300,categoria:'auto',img:'./images/productos/polarizados.jpg',stock:500,descipcion:'Descripcion de Polarizados'}    
 ]
 
-export const getProdcuts = () =>{
+export const getProducts = () =>{
     return new Promise((resolve)=>{
         setTimeout(() => {
             resolve(products)
-        }, 1500);
+        }, 5000);
     })
+};
+
+export const getProduct = (name)=>{
+    let product = products.find(prod => prod.nombre='Cree Led')
+    return new Promise((resolve)=>{
+        setTimeout(() => {
+            resolve(product)
+        }, 5000);
+    })
+
 }

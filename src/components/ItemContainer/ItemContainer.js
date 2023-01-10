@@ -1,14 +1,13 @@
-import ItemList from "../ItemList/ItemList"
+import ItemDetail from "../ItemDetail/ItemDetail"
 import Plaseholder from "../Placeholder/Plaseholder"
 import { useEffect, useState } from "react"
-import { getProducts } from "../../asyncMock"
-const ItemListContainer = ({ greeting }) => {
-
-    const [products, setProducts] = useState([])
+import { getProduct } from "../../asyncMock"
+const ItemContainer= ({ greeting }) => {
+    const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        getProducts().then(productsApi => {
-            setProducts(productsApi)
+        getProduct().then(productsApi => {
+            setProduct(productsApi)
         }).finally(() => {
             setLoading(false)
         })
@@ -20,9 +19,9 @@ const ItemListContainer = ({ greeting }) => {
     return (
         <div>
             <h1>{greeting}</h1>
-            <ItemList products={products} />
+            <ItemDetail product={product} />
         </div>
     )
 }
 
-export default ItemListContainer
+export default ItemContainer

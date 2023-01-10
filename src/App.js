@@ -2,6 +2,7 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemContainer from './components/ItemContainer/ItemContainer';
 
 function App() {
   return (
@@ -10,6 +11,11 @@ function App() {
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <ItemListContainer greeting="Hola Mundo"/>
+        <br></br>
+        <br></br>
+        <ItemContainer/>
+        <br></br>
+        <br></br>
        </header>
     </div>
   );
