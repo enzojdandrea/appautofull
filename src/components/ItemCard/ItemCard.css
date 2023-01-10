@@ -9,3 +9,13 @@
 .card-body{
     justify-self: flex-end;
 }
+.detalle{
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.detalle:hover{
+    border: 3px solid cyan;
+    transition: all 250ms ease-out;
+}

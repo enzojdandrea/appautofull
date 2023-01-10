@@ -6,6 +6,7 @@ const ItemCard = ({ id, nombre, precio, img, descipcion }) => {
                 <div className="card-body">
                     <h5 className="card-title text-dark">{nombre}</h5>
                     <p className="card-text">${precio}</p>
+                    <button className='detalle'>Detalle</button>
                 </div>
             </div>
     )
