@@ -1,12 +1,12 @@
 import ItemDetail from "../ItemDetail/ItemDetail"
 import Plaseholder from "../Placeholder/Plaseholder"
 import { useEffect, useState } from "react"
-import { getProduct } from "../../asyncMock"
+import { getProductId } from "../../asyncMock"
 const ItemContainer= ({ greeting }) => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        getProduct().then(productsApi => {
+        getProductId('1').then(productsApi => {
             setProduct(productsApi)
         }).finally(() => {
             setLoading(false)
