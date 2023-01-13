@@ -1,25 +1,27 @@
 import ItemList from "../ItemList/ItemList"
-import Plaseholder from "../Placeholder/Plaseholder"
 import { useEffect, useState } from "react"
-import { getProducts } from "../../asyncMock"
+import { getProducts,getProductsCategory } from "../../asyncMock"
+import { useParams } from "react-router-dom"
 const ItemListContainer = ({ greeting }) => {
-
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
+    const {categoryId} = useParams()
+
     useEffect(() => {
-        getProducts().then(productsApi => {
+        const asynkFunction = categoryId ? getProductsCategory : getProducts
+        asynkFunction(categoryId).then(productsApi => {
             setProducts(productsApi)
         }).finally(() => {
             setLoading(false)
         })
-    }, [])
+    }, [categoryId])
 
     if (loading) {
-        return <Plaseholder/>
+        return <h4>Cargando ...</h4>
     }
     return (
         <div>
-            <h1>{greeting}</h1>
+            <h1 className="text-center m-4">{greeting}</h1>
             <ItemList products={products} />
         </div>
     )

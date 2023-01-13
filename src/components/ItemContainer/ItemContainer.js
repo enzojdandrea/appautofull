@@ -1,20 +1,21 @@
 import ItemDetail from "../ItemDetail/ItemDetail"
-import Plaseholder from "../Placeholder/Plaseholder"
 import { useEffect, useState } from "react"
 import { getProductId } from "../../asyncMock"
-const ItemContainer= ({ greeting }) => {
+import { useParams } from "react-router-dom"
+const ItemContainer = ({ greeting }) => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
+    const { productId } = useParams()
     useEffect(() => {
-        getProductId('1').then(productsApi => {
+        getProductId(productId).then(productsApi => {
             setProduct(productsApi)
         }).finally(() => {
             setLoading(false)
         })
-    }, [])
+    }, [productId])
 
     if (loading) {
-        return <Plaseholder/>
+        return <h4>Cargando ...</h4>
     }
     return (
         <div>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './ItemCard.css'
 const ItemCard = ({ id, nombre, precio, img, descipcion }) => {
     return (
@@ -6,7 +7,7 @@ const ItemCard = ({ id, nombre, precio, img, descipcion }) => {
                 <div className="card-body">
                     <h5 className="card-title text-dark">{nombre}</h5>
                     <p className="card-text">${precio}</p>
-                    <button className='detalle'>Detalle</button>
+                    <Link to={`/detail/${id}`}><button className='detalle'>Detalle</button></Link>
                 </div>
             </div>
     )
