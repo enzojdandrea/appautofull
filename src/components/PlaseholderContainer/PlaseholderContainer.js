@@ -1,21 +1,32 @@
 import Plaseholder from "../Placeholder/Plaseholder"
-const PlaseholderContainer = ({condition}) => {
+const PlaseholderContainer = ({ condition }) => {
     if (condition === 'multi') {
         return (
             <div className="container text-center">
-                <div className="row m-3">
-                    <h3>Cargando...</h3>
+                <h3>Cargando...</h3>
+                <div className="row">
                     <Plaseholder />
                     <Plaseholder />
                     <Plaseholder />
                 </div>
+                <div className="row">
+                    <Plaseholder />
+                    <Plaseholder />
+                    <Plaseholder />
+                </div>                                  
             </div>
-        )}else{
-            return(
-                <Plaseholder />
-            )
-        }
+        )
+    } else {
+        return (
+            <div className="container text-center">
+                <h3>Cargando...</h3>
+                <div className="row">
+                    <Plaseholder />
+                </div>
+            </div >
+        )
     }
+}
 
 
 export default PlaseholderContainer
