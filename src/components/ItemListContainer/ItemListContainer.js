@@ -1,11 +1,12 @@
 import ItemList from "../ItemList/ItemList"
 import { useEffect, useState } from "react"
-import { getProducts,getProductsCategory } from "../../asyncMock"
+import { getProducts, getProductsCategory } from "../../asyncMock"
 import { useParams } from "react-router-dom"
+import PlaseholderContainer from "../PlaseholderContainer/PlaseholderContainer"
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-    const {categoryId} = useParams()
+    const { categoryId } = useParams()
 
     useEffect(() => {
         const asynkFunction = categoryId ? getProductsCategory : getProducts
@@ -17,7 +18,8 @@ const ItemListContainer = ({ greeting }) => {
     }, [categoryId])
 
     if (loading) {
-        return <h4>Cargando ...</h4>
+        return <PlaseholderContainer condition='multi'/>
+
     }
     return (
         <div>
