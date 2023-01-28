@@ -1,8 +1,8 @@
 const products =[
-{id:'1',nombre:'Cree Led',precio:5500,categoria:'motos',img:'../images/productos/creeled.jpg',stock:10,descipcion:'Descripcion de Cree Led'},
-{id:'2',nombre:'Cubre Auto',precio:12000,categoria:'autos',img:'../images/productos/cubreautos.jpg',stock:12,descipcion:'Descripcion de Cubre Auto'}, 
-{id:'3',nombre:'Funda Acientos',precio:6500,categoria:'autos',img:'../images/productos/fundaacientos.jpg',stock:15,descipcion:'Descripcion de Funda Acientos'},
-{id:'4',nombre:'Polarizados',precio:4300,categoria:'camionetas',img:'../images/productos/polarizados.jpg',stock:19,descipcion:'Descripcion de Polarizados'}    
+{id:'1',nombre:'Cree Led',precio:5500,categoria:'motos',img:'../images/productos/creeled.jpg',stock:10,descripcion:'Descripcion de Cree Led'},
+{id:'2',nombre:'Cubre Auto',precio:12000,categoria:'autos',img:'../images/productos/cubreautos.jpg',stock:12,descripcion:'Descripcion de Cubre Auto'}, 
+{id:'3',nombre:'Funda Acientos',precio:6500,categoria:'autos',img:'../images/productos/fundaacientos.jpg',stock:15,descripcion:'Descripcion de Funda Acientos'},
+{id:'4',nombre:'Polarizados',precio:4300,categoria:'camionetas',img:'../images/productos/polarizados.jpg',stock:19,descripcion:'Descripcion de Polarizados'}    
 ]
 
 export const getProducts = () =>{

@@ -1,31 +1,29 @@
-import { useState } from 'react'
 import './ItemCount.css'
+import { useState } from 'react'
 
-const ItemCount = ({ onAdd, stock }) => {
-    const [count, setCount] = useState(1);
+const ItemCount = ({stock, onAdd}) => {
+    const [quantity, setQuantity] = useState(1);
+    
     const decrement = () => {
-        if (count > 1) {
-            setCount((prev) => prev - 1);
+        if (quantity > 1) {
+            setQuantity((prev) => prev - 1);
         }
     };
     const increment = () => {
-        if (count < stock) {
-            setCount((previo) => previo + 1);
+        if (quantity < stock) {
+            setQuantity((previo) => previo + 1);
         }
-    };
-    const reset = () => {
-        setCount(1);
     };
 
     return (
         <div className="count-container">
             <div className="count-container__contador row">
                 <button className="count-container__button col" onClick={decrement}>-</button>
-                <span className="count-container__count col">{count}</span>
+                <span className="count-container__count col">{quantity}</span>
                 <button className="count-container__button col" onClick={increment}>+</button>
             </div>
             <div className='row'>
-                <button className="button-primary reset col" onClick={reset}>Reset</button>
+                <button className="Button" onClick={() => onAdd(quantity)}>Agregar al carrito</button>
             </div>
         </div>
     );

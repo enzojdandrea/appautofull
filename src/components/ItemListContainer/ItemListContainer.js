@@ -1,25 +1,42 @@
 import ItemList from "../ItemList/ItemList"
-import { useEffect, useState } from "react"
-import { getProducts, getProductsCategory } from "../../asyncMock"
-import { useParams } from "react-router-dom"
 import PlaseholderContainer from "../PlaseholderContainer/PlaseholderContainer"
+
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+
+import { getDocs, collection,query, where } from 'firebase/firestore'
+import { db } from '../../services/firebase/firebaseConfig'
+
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const { categoryId } = useParams()
 
     useEffect(() => {
-        const asynkFunction = categoryId ? getProductsCategory : getProducts
-        asynkFunction(categoryId).then(productsApi => {
-            setProducts(productsApi)
+        document.title = 'Todos los Productos'
+    }, [])
+
+    useEffect(() => {
+        setLoading(true)
+        
+        const collectionRef = categoryId 
+            ? query(collection(db, 'bdProductos'), where('categoria', '==', categoryId))
+            : collection(db, 'bdProductos')
+        getDocs(collectionRef).then(response => {
+            const productsAdapted = response.docs.map(doc => {
+                const data = doc.data()
+                return { id: doc.id, ...data }
+            })
+            setProducts(productsAdapted)
+        }).catch(error => {
+            console.log(error)
         }).finally(() => {
             setLoading(false)
         })
     }, [categoryId])
 
     if (loading) {
-        return <PlaseholderContainer condition='multi'/>
-
+        return <PlaseholderContainer />
     }
     return (
         <div>

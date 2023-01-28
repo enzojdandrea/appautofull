@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import CartWidget from "../CartWidget/CartWidget"
 import './NavBar.css'
 
-function NavBarReact() {
+function NavBar() {
     return (
         <Navbar bg="light" expand="lg" className="navbar navbar-expand-lg bg-dark">
             <Container>
@@ -24,7 +24,7 @@ function NavBarReact() {
                         <Nav.Link><Link to='/category/motos'><button className="btn btn-outline-primary fs-5 m-1">Motos</button></Link></Nav.Link>
                     </Nav>
                     <Nav.Link>
-                            <CartWidget />
+                        <Link to='/cart'><CartWidget /></Link>
                     </Nav.Link>
                 </Navbar.Collapse>
             </Container>
@@ -32,4 +32,4 @@ function NavBarReact() {
     );
 }
 
-export default NavBarReact;
+export default NavBar;
