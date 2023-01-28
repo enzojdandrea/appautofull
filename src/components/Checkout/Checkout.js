@@ -66,13 +66,13 @@ const Checkout = () => {
     }
 
     if (loading) {
-        return <h1>Generando orden...</h1>
+        return <h1 className="text-center">Generando orden...</h1>
     }
 
     if (orderId) {
         return (
-            <div className="Container text-center">
-                <h1>El Id de su compra es: {orderId}</h1>
+            <div className="container">
+                <h1 className="text-center">El Id de su compra es: {orderId}</h1>
             </div>
         )
     }
@@ -84,9 +84,9 @@ const Checkout = () => {
     }
 
     return (
-        <div>
-            <h1>Checkout</h1>
-            <button onClick={createOrder}>Generar orden</button>
+        <div className="container text-center">
+            <h1 className="mt-5">Confirmar Compra</h1>
+            <button onClick={createOrder} className="mt-5">Generar orden</button>
         </div>
     )
 }
