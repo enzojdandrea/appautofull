@@ -19,11 +19,11 @@ const ItemDetail = ({ id, img, nombre, descripcion, precio, stock}) => {
                     <img src={img} className="card-img rounded" alt={nombre} />
                 </div>
                 <div className="col-4">
-                    <h2 className="title text-dark">{nombre}</h2>
+                    <h2 className="title text-center text-dark">{nombre}</h2>
                     <p className="text-center fs-5 text-break" >{descripcion}</p>
                 </div>
                 <div className="col-4">
-                    <p className="price">${precio}</p>                       
+                    <h3 className="price mb-4">${precio}</h3>                       
 
                 {!ifstock ? (
                     <h3>Fuera de Stock</h3>
