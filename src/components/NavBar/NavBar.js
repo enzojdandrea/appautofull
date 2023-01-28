@@ -17,15 +17,11 @@ function NavBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link>
-                            <Link to='/category/autos'><button className="btn btn-outline-primary fs-5 m-1">Autos</button></Link>
-                        </Nav.Link>
-                        <Nav.Link><Link to='/category/camionetas'><button className="btn btn-outline-primary fs-5 m-1">Camionetas</button></Link></Nav.Link>
-                        <Nav.Link><Link to='/category/motos'><button className="btn btn-outline-primary fs-5 m-1">Motos</button></Link></Nav.Link>
+                        <Link to='/category/autos'><button className="btn btn-outline-primary fs-5 m-1">Autos</button></Link>
+                        <Link to='/category/camionetas'><button className="btn btn-outline-primary fs-5 m-1">Camionetas</button></Link>
+                        <Link to='/category/motos'><button className="btn btn-outline-primary fs-5 m-1">Motos</button></Link>
                     </Nav>
-                    <Nav.Link>
-                        <Link to='/cart'><CartWidget /></Link>
-                    </Nav.Link>
+                    <Link to='/cart'><CartWidget /></Link>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

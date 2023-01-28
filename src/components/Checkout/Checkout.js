@@ -9,18 +9,16 @@ const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState('')
     const { cart, total, clearCart } = useContext(CartContext)
+    const {user} = useContext(UserContext)
     const navigate = useNavigate()
-
     const createOrder = async () => {
         setLoading(true)
         try {
-            const {user} = useContext(UserContext)
-            const{name,phone,email} = user
             const objOrder = {
                 buyer: {
-                    name,
-                    phone,
-                    email
+                    name:user.name,
+                    phone:user.phone,
+                    email:user.email
                 },
                 items: cart,
                 total

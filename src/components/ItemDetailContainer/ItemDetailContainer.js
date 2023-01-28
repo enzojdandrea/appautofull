@@ -32,7 +32,7 @@ const ItemDetailContainer = () => {
         return <Plaseholder/>
     }
     return (
-        <div>
+        <div className="container p-5">
             <ItemDetail {...product} />
         </div>
     )

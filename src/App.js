@@ -7,7 +7,7 @@ import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import CartContainer from './components/CartContainer/CartContainer';
-// import UserFrom from './components/UserForm/UserForm'
+import UserFormContainer from './components/UserFormContainer/UserFormContainer';
 import Checkout from './components/Checkout/Checkout';
 
 
@@ -22,7 +22,7 @@ function App() {
             <Route path='/category/:categoryId' element={<ItemListContainer greeting="Por Categoria" />} />
             <Route path='/detail/:productId' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<CartContainer />} />
-            {/* <Route path='/form' element={<UserFrom/>}/> */}
+            <Route path='/userform' element={<UserFormContainer/>}/>
             <Route path='/checkout' element={<Checkout />} />
           </Routes>
         </BrowserRouter>
