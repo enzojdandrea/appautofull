@@ -1,11 +1,11 @@
 import { collection, query, where, documentId, getDocs, writeBatch, addDoc } from "firebase/firestore"
 import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
+import { UserContext } from "../../context/UserContext"
 import { db } from "../../services/firebase/firebaseConfig"
-
 import { useNavigate } from "react-router-dom"
 
-const Checkout = (name,phone,email) => {
+const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState('')
     const { cart, total, clearCart } = useContext(CartContext)
@@ -14,11 +14,13 @@ const Checkout = (name,phone,email) => {
     const createOrder = async () => {
         setLoading(true)
         try {
+            const {user} = useContext(UserContext)
+            const{name,phone,email} = user
             const objOrder = {
                 buyer: {
-                    name: 'Enzo DAndrea',
-                    phone: '00001111',
-                    email: 'enzojdandrea@autofull'
+                    name,
+                    phone,
+                    email
                 },
                 items: cart,
                 total
