@@ -18,6 +18,7 @@ const UserForm = () => {
     }
 
     const enviarDatos = (event) => {
+        // console.log('Name: '+datos.name.length+' Phone: '+datos.phone.length+' Email: '+datos.email.length)
         event.preventDefault()
         addUser(datos)
         navigate('/checkout')
@@ -30,7 +31,11 @@ const UserForm = () => {
                 <input type="text" placeholder="Nombre" className="form-control m-3" onChange={handleInputChange} name="name"></input>
                 <input type="text" placeholder="Telefono" className="form-control m-3" onChange={handleInputChange} name="phone"></input>
                 <input type="text" placeholder="E-Mail" className="form-control m-3" onChange={handleInputChange} name="email"></input>
-                <button type="submit" className="btn btn-primary">Enviar</button>
+                {(datos.name.length > 0) && (datos.phone.length > 0) && (datos.email.length > 0)
+                    ? <button type="submit" className="btn btn-primary">Enviar</button>
+                    : <h4>Completar Todos los Datos</h4>
+                }
+
             </form>
         </div>
     )
