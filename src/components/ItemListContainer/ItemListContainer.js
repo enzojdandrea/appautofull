@@ -1,43 +1,25 @@
 import ItemList from "../ItemList/ItemList"
 import PlaseholderContainer from "../PlaseholderContainer/PlaseholderContainer"
 
-import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { useAsync } from '../../hooks/useAsync'
+import { useTitle } from "../../hooks/useTitle"
 
-import { getDocs, collection,query, where } from 'firebase/firestore'
-import { db } from '../../services/firebase/firebaseConfig'
+import {getProducts} from '../../services/firebase/firestore/products'
 
 const ItemListContainer = ({ greeting }) => {
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
     const { categoryId } = useParams()
-
-    useEffect(() => {
-        document.title = 'Todos los Productos'
-    }, [])
-
-    useEffect(() => {
-        setLoading(true)
-        
-        const collectionRef = categoryId 
-            ? query(collection(db, 'bdProductos'), where('categoria', '==', categoryId))
-            : collection(db, 'bdProductos')
-        getDocs(collectionRef).then(response => {
-            const productsAdapted = response.docs.map(doc => {
-                const data = doc.data()
-                return { id: doc.id, ...data }
-            })
-            setProducts(productsAdapted)
-        }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })
-    }, [categoryId])
+    useTitle('Todos los Productos',[categoryId])
+    const getProductsWithCategory = () => getProducts(categoryId)
+    const { data: products, error, loading } = useAsync(getProductsWithCategory, [categoryId])
 
     if (loading) {
         return <PlaseholderContainer />
     }
+    if (error) {
+        return <h1>Hubo un error y no se puedo traer los produectos</h1>
+    }
+
     return (
         <div>
             <h1 className="text-center m-4">{greeting}</h1>
