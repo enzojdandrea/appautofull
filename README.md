@@ -1,5 +1,3 @@
-# Zuvcommerce
-
 > Ecommerce AutoFull.
 
 This product is being built
